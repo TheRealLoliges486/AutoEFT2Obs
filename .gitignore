@@ -5,4 +5,5 @@ results
 snakemake_env
 .condor_jobs
 *.sif
-/EFT2Obs
+EFT2Obs
+py.py
