@@ -84,7 +84,7 @@ rule setup_process:
     rm -rf ${{PROC_DIR}}/{wildcards.proc}.{wildcards.version}
     ./EFT2Obs/scripts/setup_process.sh {wildcards.proc}.{wildcards.version}
     
-    pushd ${{PROC_DIR}} ; set -e ; tar -czf {wildcards.proc}.{wildcards.version}.tar.gz {wildcards.proc}.{wildcards.version} ; set +e ; rm -r {wildcards.proc}.{wildcards.version} ; popd
+    pushd ${{PROC_DIR}} ; set +e ; tar -czf {wildcards.proc}.{wildcards.version}.tar.gz {wildcards.proc}.{wildcards.version} ; set -e ; rm -r {wildcards.proc}.{wildcards.version} ; popd
     """
 
 rule auto_detect:
@@ -115,7 +115,7 @@ rule setup_SM_gen:
     tar -xf results/process_output/{wildcards.proc}.0.tar.gz -C $tmpdir
     pushd $tmpdir
       mv {wildcards.proc}.0 {wildcards.proc}.{wildcards.version}.SM_gen
-      set -e ; tar -czf {wildcards.proc}.{wildcards.version}.SM_gen.tar.gz {wildcards.proc}.{wildcards.version}.SM_gen ; set +e
+      set +e ; tar -czf {wildcards.proc}.{wildcards.version}.SM_gen.tar.gz {wildcards.proc}.{wildcards.version}.SM_gen ; set -e
       mv {wildcards.proc}.{wildcards.version}.SM_gen.tar.gz ../
     popd
     rm -r $tmpdir
