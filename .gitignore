@@ -7,3 +7,4 @@ snakemake_env
 *.sif
 EFT2Obs
 py.py
+htcondor

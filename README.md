@@ -29,5 +29,5 @@ The `-c 1` tells snakemake to use one core. Specify a greater number if desired 
 
 Run snakemake with `--profile htcondor` and without `-c 1`. 
 ```
-snakemake --sdm apptainer --apptainer-args "--writable-tmpfs -B /afs -B /cvmfs/cms.cern.ch -B /tmp -B /etc/sysconfig/ngbauth-submit -B ${XDG_RUNTIME_DIR} -B /eos --env KRB5CCNAME='FILE:${XDG_RUNTIME_DIR}/krb5cc' " --profile htcondor
+snakemake --sdm apptainer --apptainer-args "--writable-tmpfs -B /afs -B /cvmfs/cms.cern.ch -B /tmp -B /etc/sysconfig/ngbauth-submit -B ${XDG_RUNTIME_DIR} -B /eos --env KRB5CCNAME='FILE:${XDG_RUNTIME_DIR}/krb5cc' " --profile /afs/cern.ch/user/n/niharrin/.config/snakemake/htcondor
 ```
